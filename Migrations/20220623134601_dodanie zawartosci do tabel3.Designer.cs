@@ -10,8 +10,8 @@ using kolokwium_poprawa.Models;
 namespace kolokwium_poprawa.Migrations
 {
     [DbContext(typeof(KolokwiumDbContext))]
-    [Migration("20220623124257_dodanie zawartosci do tabel")]
-    partial class dodaniezawartoscidotabel
+    [Migration("20220623134601_dodanie zawartosci do tabel3")]
+    partial class dodaniezawartoscidotabel3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -88,7 +88,7 @@ namespace kolokwium_poprawa.Migrations
                             MemberName = "Jan",
                             MemberNickName = "Kowal",
                             MemberSurname = "Kowalski",
-                            OrganizationID = 0
+                            OrganizationID = 1
                         },
                         new
                         {
@@ -96,7 +96,7 @@ namespace kolokwium_poprawa.Migrations
                             MemberName = "Monika",
                             MemberNickName = "Monoia",
                             MemberSurname = "Nowak",
-                            OrganizationID = 0
+                            OrganizationID = 1
                         },
                         new
                         {
@@ -104,7 +104,7 @@ namespace kolokwium_poprawa.Migrations
                             MemberName = "Mikołaj",
                             MemberNickName = "Cool gosciu",
                             MemberSurname = "Gitara",
-                            OrganizationID = 0
+                            OrganizationID = 1
                         });
                 });
 
@@ -154,8 +154,8 @@ namespace kolokwium_poprawa.Migrations
 
                     b.Property<string>("OrganizationName")
                         .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("OrganizationID");
 
@@ -166,7 +166,7 @@ namespace kolokwium_poprawa.Migrations
                         {
                             OrganizationID = 1,
                             OrganizationDomain = "PJATK",
-                            OrganizationName = "Polsko-Japońska Akademia Technik Komputerowych"
+                            OrganizationName = "PJATK"
                         });
                 });
 
@@ -199,14 +199,14 @@ namespace kolokwium_poprawa.Migrations
                         new
                         {
                             TeamID = 1,
-                            OrganizationID = 0,
+                            OrganizationID = 1,
                             TeamDescription = "Cool przedmiot",
                             TeamName = "APBD"
                         },
                         new
                         {
                             TeamID = 2,
-                            OrganizationID = 0,
+                            OrganizationID = 1,
                             TeamDescription = "Nie taki coll jak APBD",
                             TeamName = "Wyklad"
                         });

@@ -99,6 +99,7 @@ namespace kolokwium_poprawa.Models
                 new Team
                 {
                     TeamID = 1,
+                    OrganizationID = 1,
                     TeamName = "APBD",
                     TeamDescription = "Cool przedmiot"
                 },
@@ -106,6 +107,7 @@ namespace kolokwium_poprawa.Models
                 new Team
                 {
                     TeamID = 2,
+                    OrganizationID = 1,
                     TeamName = "Wyklad",
                     TeamDescription = "Nie taki coll jak APBD"
                 }
@@ -156,9 +158,9 @@ namespace kolokwium_poprawa.Models
             };
 
             modelBuilder.Entity<Member>().HasData(defaultMember);
-            /*modelBuilder.Entity<Organization>().HasData(defaultOrganization);
+            modelBuilder.Entity<Organization>().HasData(defaultOrganization);
             modelBuilder.Entity<Team>().HasData(defaultTeam);
-            modelBuilder.Entity<Membership>().HasData(defaultMembership);*/
+            modelBuilder.Entity<Membership>().HasData(defaultMembership);
         }
     }
 }

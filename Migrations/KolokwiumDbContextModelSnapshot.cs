@@ -197,14 +197,14 @@ namespace kolokwium_poprawa.Migrations
                         new
                         {
                             TeamID = 1,
-                            OrganizationID = 0,
+                            OrganizationID = 1,
                             TeamDescription = "Cool przedmiot",
                             TeamName = "APBD"
                         },
                         new
                         {
                             TeamID = 2,
-                            OrganizationID = 0,
+                            OrganizationID = 1,
                             TeamDescription = "Nie taki coll jak APBD",
                             TeamName = "Wyklad"
                         });
