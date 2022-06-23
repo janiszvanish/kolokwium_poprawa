@@ -80,9 +80,85 @@ namespace kolokwium_poprawa.Models
             modelBuilder.Entity<Organization>(e =>
             {
                 e.HasKey(e => e.OrganizationID);
-                e.Property(e => e.OrganizationName).HasMaxLength(1000).IsRequired();
+                e.Property(e => e.OrganizationName).HasMaxLength(100).IsRequired();
                 e.Property(e => e.OrganizationDomain).HasMaxLength(50).IsRequired();
             });
+
+            var defaultOrganization = new List<Organization>
+            {
+                new Organization
+                {
+                    OrganizationID = 1,
+                    OrganizationName = "PJATK",
+                    OrganizationDomain = "PJATK"
+                }
+            };
+
+            var defaultTeam = new List<Team>
+            {
+                new Team
+                {
+                    TeamID = 1,
+                    TeamName = "APBD",
+                    TeamDescription = "Cool przedmiot"
+                },
+
+                new Team
+                {
+                    TeamID = 2,
+                    TeamName = "Wyklad",
+                    TeamDescription = "Nie taki coll jak APBD"
+                }
+            };
+
+            var defaultMember = new List<Member>
+            {
+                new Member
+                {
+                    MemberID = 1,
+                    OrganizationID = 1,
+                    MemberName = "Jan",
+                    MemberSurname = "Kowalski",
+                    MemberNickName = "Kowal"
+                },
+                new Member
+                {
+                    MemberID = 2,
+                    OrganizationID = 1,
+                    MemberName = "Monika",
+                    MemberSurname = "Nowak",
+                    MemberNickName = "Monoia"
+                },
+                new Member
+                {
+                    MemberID = 3,
+                    OrganizationID = 1,
+                    MemberName = "Mikołaj",
+                    MemberSurname = "Gitara",
+                    MemberNickName = "Cool gosciu"
+                }
+            };
+
+            var defaultMembership = new List<Membership>
+            {
+                new Membership
+                {
+                    TeamID = 1,
+                    MemberID = 1,
+                    MembershipDate = new DateTime(2022, 7, 8)
+                },
+                new Membership
+                {
+                    TeamID = 1,
+                    MemberID = 2,
+                    MembershipDate = new DateTime(2022, 4, 5)
+                }
+            };
+
+            modelBuilder.Entity<Member>().HasData(defaultMember);
+            /*modelBuilder.Entity<Organization>().HasData(defaultOrganization);
+            modelBuilder.Entity<Team>().HasData(defaultTeam);
+            modelBuilder.Entity<Membership>().HasData(defaultMembership);*/
         }
     }
 }

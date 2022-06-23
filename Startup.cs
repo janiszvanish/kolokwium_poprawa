@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using kolokwium_poprawa.Models;
+using kolokwium_poprawa.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,11 +29,12 @@ namespace kolokwium_poprawa
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddScoped<IAlbumService, AlbumService>();
+            services.AddControllers();
+            services.AddScoped<ITeamService, TeamService>();
             services.AddDbContext<KolokwiumDbContext>(opt => {
                opt.UseSqlServer("Data Source=localhost,1433;DataBase=Kolokwium; User ID=sa; Password=zaq1@WSX");
             });
-            services.AddControllers();
+           
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "kolokwium_poprawa", Version = "v1" });
